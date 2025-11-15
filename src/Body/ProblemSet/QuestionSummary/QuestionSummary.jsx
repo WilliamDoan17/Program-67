@@ -1,6 +1,22 @@
 import styles from './QuestionSummary.module.css'
 
-const QuestionSummary = ({ totalTime }) => {
+const QuestionSummary = ({ totalTime, problemChosenList, topicsChosen, difficultiesChosen }) => {
+    const problemInTopicCount = new Map();
+    const problemInDifficultyCount = new Map();
+
+    topicsChosen.forEach(topic => {
+        problemInTopicCount.set(topic.name, 0);
+    })
+    difficultiesChosen.forEach(difficulty => {
+        problemInDifficultyCount.set(difficulty.level, 0);
+    })
+    problemChosenList.forEach(problem => {
+        problemInTopicCount.set(problem.topic, problemInTopicCount.get(problem.topic) + 1);
+        problemInDifficultyCount.set(problem.difficulty, problemInDifficultyCount.get(problem.difficulty) + 1);
+    })
+
+    console.log(problemInDifficultyCount, problemInTopicCount);
+
     return (
         <>
             <div
@@ -41,12 +57,30 @@ const QuestionSummary = ({ totalTime }) => {
                     <div 
                         className = {`${styles['summary-cell']}`}
                     >
-
+                        <h3
+                            className = {`${styles['summary-cell-header']}`}
+                        >
+                            Difficulty
+                        </h3>
+                        <p
+                            className = {`${styles['summary-cell-intro']}`}
+                        >
+                            Questions grouped by difficulty
+                        </p>
                     </div>
                     <div 
                         className = {`${styles['summary-cell']}`}
                     >
-
+                        <h3
+                            className = {`${styles['summary-cell-header']}`}
+                        >
+                            Topics
+                        </h3>
+                        <p
+                            className = {`${styles['summary-cell-intro']}`}
+                        >
+                            Questions grouped by topics
+                        </p>
                     </div>  
                 </div>
             </div>

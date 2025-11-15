@@ -48,6 +48,8 @@ const Body = () => {
                 <ProblemSet
                     weekCount = {weekCount}
                     hoursPerWeek = {hoursPerWeek}
+                    topicsChosen = {topicsChosen}
+                    difficultiesChosen = {difficultiesChosen}
                 >                    
                 </ProblemSet>
             </div>

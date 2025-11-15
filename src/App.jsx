@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const author = "Phong Doan";
-  const appName = 'Problem67';
+  const appName = 'Leet101';
   return (
     <>
       <div className = 'app-container'>
