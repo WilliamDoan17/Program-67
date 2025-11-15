@@ -1,7 +1,8 @@
 import styles from './Body.module.css';
 import { useState } from 'react';
 import Preferences from './Preferences/Preferences';
-import { difficulties, defaultWeekCount, defaultHoursPerWeek, defaultDifficultiesChosen, topics, defaultTopicsChosen} from '../../constants/preferences';
+import { defaultWeekCount, defaultHoursPerWeek, defaultDifficultiesChosen, defaultTopicsChosen} from '../../constants/preferences';
+import { topics, difficulties } from '../../constants/problemSet'
 import ChangeTopicsModal from './ChangeTopicsModal/ChangeTopicsModal';
 import ProblemSet from './ProblemSet/ProblemSet';
 
@@ -12,7 +13,6 @@ const Body = () => {
     const [topicsChosen, setTopicsChosen] = useState(defaultTopicsChosen); 
     const [isRequestingChangeTopics, setIsRequestingChangeTopics] = useState(false);
 
-    console.log(topicsChosen);
 
     const onChangeTopicsChosenRequest = (value) => {
         setIsRequestingChangeTopics(value);

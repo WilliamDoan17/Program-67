@@ -1,3 +1,24 @@
+export const topics = [
+  { name: "Array", priority: 0.98 },
+  { name: "Hash Table", priority: 0.95 },
+  { name: "String", priority: 0.93 },
+  { name: "Dynamic Programming", priority: 0.92 },
+  { name: "Binary Search", priority: 0.90 },
+  { name: "Binary Tree", priority: 0.88 },
+  { name: "Linked List", priority: 0.85 },
+  { name: "Stack", priority: 0.82 },
+  { name: "Graph", priority: 0.80 },
+  { name: "Heap", priority: 0.78 },
+  { name: "Binary Search Tree", priority: 0.75 },
+  { name: "Recursion", priority: 0.72 },
+  { name: "Matrix", priority: 0.70 },
+  { name: "Queue", priority: 0.68 },
+  { name: "Math", priority: 0.65 },
+  { name: "Trie", priority: 0.62 },
+  { name: "Binary", priority: 0.55 }
+];
+
+
 export const problemList = [
   // ===== ARRAY (45 problems) =====
   // Easy (15)
@@ -350,35 +371,26 @@ export const problemList = [
   { name: "Word Squares", difficulty: "hard", topic: "Hash Table", timeTaken: 55 }
 ];
 
-export const topicPriority = {
-  // Tier 1: Highest Frequency (Essential for every interview)
-  "Array": 0.98,
-  "Hash Table": 0.95,
-  "String": 0.93,
-  "Dynamic Programming": 0.92,
-  "Binary Search": 0.90,
-  
-  // Tier 2: High Frequency (Very common)
-  "Binary Tree": 0.88,
-  "Linked List": 0.85,
-  "Stack": 0.82,
-  "Graph": 0.80,
-  "Heap": 0.78,
-  
-  // Tier 3: Medium Frequency (Regularly appears)
-  "Binary Search Tree": 0.75,
-  "Recursion": 0.72,
-  "Matrix": 0.70,
-  "Queue": 0.68,
-  
-  // Tier 4: Lower Frequency (Appears occasionally)
-  "Math": 0.65,
-  "Trie": 0.62,
-  "Binary": 0.55
-};
-
 export const difficultyPriority = {
   "easy": 0.35,    // 35% of problems - for building fundamentals
   "medium": 0.50,  // 50% of problems - main interview focus
   "hard": 0.15     // 15% of problems - advanced challenges
 };
+
+export const difficulties = [
+    {
+        level: 'easy',
+        labelColor: 'rgb(16 185 129)',
+        priority: 0.35
+    },
+    {
+        level: 'medium', 
+        labelColor: 'rgb(234 179 8)',
+        priority: 0.50
+    },
+    {
+        level: 'hard',
+        labelColor: 'rgb(239 68 68)',
+        priority: 0.15
+    },
+]

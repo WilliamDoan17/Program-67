@@ -19,7 +19,7 @@ const PreferencesHeader = ({ message }) => {
     )
 }
 
-const Preferences = ({ topics, weekCount, hoursPerWeek, difficultiesChosen, topicsChosen, setWeekCount, setHoursPerWeek, setDifficultiesChosen, setTopicsChosen, difficulties, onChangeTopicsChosenRequest }) => {
+const Preferences = ({ weekCount, hoursPerWeek, difficultiesChosen, topics, topicsChosen, setWeekCount, setHoursPerWeek, setDifficultiesChosen, difficulties, onChangeTopicsChosenRequest }) => {
     const preferencesMessage = 'Indicate your preferences and I will recommend the best LeetCode questions for you to practice.';
     return (
         <div
