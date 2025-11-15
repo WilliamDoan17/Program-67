@@ -1,11 +1,11 @@
 import styles from './Preferences.module.css';
 import { useState } from 'react'; 
 
-const DifficultyCheckbox = ({ difficulty, labelColor = 'rgb(0, 0, 0)', onChange, unCheckedColor = '#fff',  defaultChecked }) => {
-    const [checked, setChecked] = useState(defaultChecked);
+const DifficultyCheckbox = ({ difficulty, labelColor = 'rgb(0, 0, 0)', onChange, unCheckedColor = '#fff',  checked }) => {
+    const [isChecked, setIsChecked] = useState(checked);
     const handleChange = (e) => {
-        const newChecked = !checked;
-        setChecked(newChecked);
+        const newChecked = !isChecked;
+        setIsChecked(newChecked);
         onChange && onChange(newChecked, difficulty);
     }
     const diffcultyLabelStyle = {
@@ -22,7 +22,7 @@ const DifficultyCheckbox = ({ difficulty, labelColor = 'rgb(0, 0, 0)', onChange,
         position: 'absolute',
         border: `1px solid ${labelColor}`,
         borderRadius: '3px',
-        display: checked ? 'none' : 'block',
+        display: isChecked ? 'none' : 'block',
         cursor: 'pointer',
         padding: 0,
         margin: 0,
@@ -45,7 +45,7 @@ const DifficultyCheckbox = ({ difficulty, labelColor = 'rgb(0, 0, 0)', onChange,
                 <input
                     type = 'checkbox'
                     style = {checkboxStyle}
-                    checked = {checked}
+                    checked = {isChecked}
                     name = {difficulty}
                     id = {difficulty}
                     onChange = {handleChange}
@@ -58,23 +58,27 @@ const DifficultyCheckbox = ({ difficulty, labelColor = 'rgb(0, 0, 0)', onChange,
                     className = {`${styles['difficulty-label']}`}
                     style = {diffcultyLabelStyle}
                     htmlFor = {difficulty}
-                >{difficulty}</label>
+                >{difficulty.level}</label>
             </div>
         </>
     )
 }
 
-const DifficultiesPreference = ({ difficultiesChosen, setDifficultiesChosen, difficulties }) => {
+const DifficultiesPreference = ({ difficultiesChosen, setDifficultiesChosen, difficulties, onChange }) => {
     const handleDifficultyChange = (newChecked, difficulty) => {
         let newDifficultiesChosen = [];
         if (newChecked) {
-            newDifficultiesChosen = [...difficultiesChosen, difficulty];
+            newDifficultiesChosen = [...difficultiesChosen];
+            difficulties.forEach((_difficulty) => {
+                if (_difficulty === difficulty) newDifficultiesChosen.push(_difficulty);
+            });
         } else {
             newDifficultiesChosen = difficultiesChosen.filter((_difficulty) => {
                 if (_difficulty !== difficulty) return true;
             })
         }
         setDifficultiesChosen(newDifficultiesChosen);
+        onChange && onChange(newDifficultiesChosen, setDifficultiesChosen);
     }
     return (
         <div
@@ -84,13 +88,13 @@ const DifficultiesPreference = ({ difficultiesChosen, setDifficultiesChosen, dif
             <div
                 className = {`${styles['difficulty-checkboxes-container']}`}
             >
-                {difficulties.map(({ difficulty, labelColor }) => {
+                {difficulties.map((difficulty) => {
                     return <DifficultyCheckbox
                         key = {difficulty}
                         difficulty={difficulty}
-                        labelColor = {labelColor}
+                        labelColor = {difficulty.labelColor}
                         onChange = {handleDifficultyChange}
-                        defaultChecked = {difficultiesChosen.includes(difficulty)}
+                        checked = {difficultiesChosen.includes(difficulty)}
                     ></DifficultyCheckbox> 
                 })}
             </div>

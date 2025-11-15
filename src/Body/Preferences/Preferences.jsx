@@ -2,14 +2,15 @@ import styles from './Preferences.module.css';
 import SchedulePreference from './SchedulePreference';
 import DifficultiesPreference from './DifficultiesPreference';
 import { useState } from 'react';
+import TopicsPreference from './TopicsPreference';
 
 const PreferencesHeader = ({ message }) => {
     const headerStyle = {
         backgroundColor: 'rgb(79, 70, 229)',
         color: 'rgb(255, 255, 255)',
-        fontSize: '.75rem',
+        fontSize: '.875rem',
         lineHeight: '1rem',
-        fontWeight: '600'
+        fontWeight: '400'
     }
     return (
         <div className  = {`${styles['preference-container']}`} style = {headerStyle}>
@@ -18,7 +19,7 @@ const PreferencesHeader = ({ message }) => {
     )
 }
 
-const Preferences = ({ weekCount, hoursPerWeek, difficultiesChosen, topicsChosen, setWeekCount, setHoursPerWeek, setDifficultiesChosen, setTopicsChosen, difficulties, onChange }) => {
+const Preferences = ({ topics, weekCount, hoursPerWeek, difficultiesChosen, topicsChosen, setWeekCount, setHoursPerWeek, setDifficultiesChosen, setTopicsChosen, difficulties, onChange, onChangeTopicsChosen }) => {
     const handleChange = (newValue, setValue) => {
         onChange && onChange(newValue, setValue);
     }
@@ -41,8 +42,16 @@ const Preferences = ({ weekCount, hoursPerWeek, difficultiesChosen, topicsChosen
                 difficultiesChosen = {difficultiesChosen}
                 setDifficultiesChosen = {setDifficultiesChosen}
                 difficulties = {difficulties}
+                onChange={handleChange}
             >
             </DifficultiesPreference>
+            <TopicsPreference
+                topics = {topics}
+                topicsChosen = {topicsChosen}
+                onChange = {onChangeTopicsChosen}
+            >
+                
+            </TopicsPreference>
         </div>
     )
 };
