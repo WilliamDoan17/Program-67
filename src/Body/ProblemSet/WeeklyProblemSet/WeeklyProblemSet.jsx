@@ -28,6 +28,8 @@ const ProblemCard = ({ problem, problemIndex }) => {
                 > 
                     <a
                         className = {`${styles['problem-name']}`}
+                        href = {problem.source}
+                        target = "_blank"
                     >
                         {problem.name}
                     </a>
@@ -73,11 +75,43 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
                 className = {`${styles['week-button']} ${isExpanding && styles['week-button-expand']}`}
                 onClick = {onChangeExpandingState}
             >
-                <h2
-                    className = {`${styles['week-number-header']}`}
+                <div
+                    className = {`${styles['week-button-children']}`}
                 >
-                    Week {weekIndex}
-                </h2>
+                    <h2
+                    className = {`${styles['week-number-header']}`}
+                    >
+                        Week {weekIndex}
+                    </h2>
+                </div>
+                <div
+                    className = {`${styles['week-button-children']}`}
+                >
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke= 'grey'
+                        aria-hidden="true" 
+                        class = {`${styles['expand-button']}`}
+                    >
+                        {isExpanding ? 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="2"
+                                d="M5 15l7-7 7 7"
+                            >
+                            </path> : 
+                            <path 
+                                stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                stroke-width="2" d="M19 9l-7 7-7-7"
+                            >
+                            </path>
+                        }
+                    </svg>
+                </div>
             </button>
             {isExpanding && weeklyProblems.map((problem, problemIndex) => {
                 return (
