@@ -1,4 +1,3 @@
-import { defaultHoursPerWeek } from "./preferences";
 
 export const topics = [
   { name: "Array", priority: 0.98 },
@@ -42,7 +41,7 @@ export const difficulties = [
 ]
 
 
-export const problemList = [
+export const initProblemList = [
   // ===== ARRAY (45 problems) =====
   // Easy (15)
   { name: "Two Sum", difficulty: "easy", topic: "Array", timeTaken: 25, source: "https://leetcode.com/problems/two-sum/" },
@@ -126,7 +125,6 @@ export const problemList = [
   { name: "Integer to Roman", difficulty: "medium", topic: "String", timeTaken: 45, source: "https://leetcode.com/problems/integer-to-roman/" },
 
   // Hard (5)
-  { name: "Minimum Window Substring", difficulty: "hard", topic: "String", timeTaken: 70, source: "https://leetcode.com/problems/minimum-window-substring/" },
   { name: "Edit Distance", difficulty: "hard", topic: "String", timeTaken: 75, source: "https://leetcode.com/problems/edit-distance/" },
   { name: "Regular Expression Matching", difficulty: "hard", topic: "String", timeTaken: 80, source: "https://leetcode.com/problems/regular-expression-matching/" },
   { name: "Wildcard Matching", difficulty: "hard", topic: "String", timeTaken: 75, source: "https://leetcode.com/problems/wildcard-matching/" },
@@ -209,8 +207,6 @@ export const problemList = [
   // ===== DYNAMIC PROGRAMMING (35 problems) =====
   // Easy (10)
   { name: "Climbing Stairs", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 25, source: "https://leetcode.com/problems/climbing-stairs/" },
-  { name: "Best Time to Buy and Sell Stock", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 30, source: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
-  { name: "Maximum Subarray", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 30, source: "https://leetcode.com/problems/maximum-subarray/" },
   { name: "House Robber", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 35, source: "https://leetcode.com/problems/house-robber/" },
   { name: "Divisor Game", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 25, source: "https://leetcode.com/problems/divisor-game/" },
   { name: "Fibonacci Number", difficulty: "easy", topic: "Dynamic Programming", timeTaken: 20, source: "https://leetcode.com/problems/fibonacci-number/" },
@@ -222,7 +218,6 @@ export const problemList = [
   // Medium (15)
   { name: "Coin Change", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 50, source: "https://leetcode.com/problems/coin-change/" },
   { name: "Longest Increasing Subsequence", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/longest-increasing-subsequence/" },
-  { name: "Word Break", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 50, source: "https://leetcode.com/problems/word-break/" },
   { name: "Unique Paths", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 40, source: "https://leetcode.com/problems/unique-paths/" },
   { name: "Longest Common Subsequence", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/longest-common-subsequence/" },
   { name: "Partition Equal Subset Sum", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 50, source: "https://leetcode.com/problems/partition-equal-subset-sum/" },
@@ -230,16 +225,9 @@ export const problemList = [
   { name: "Decode Ways", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/decode-ways/" },
   { name: "Perfect Squares", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/perfect-squares/" },
   { name: "Coin Change II", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 50, source: "https://leetcode.com/problems/coin-change-ii/" },
-  { name: "Maximum Product Subarray", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/maximum-product-subarray/" },
-  { name: "Palindromic Substrings", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 40, source: "https://leetcode.com/problems/palindromic-substrings/" },
-  { name: "Longest Palindromic Substring", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/longest-palindromic-substring/" },
-  { name: "Jump Game", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 40, source: "https://leetcode.com/problems/jump-game/" },
   { name: "Unique Paths II", difficulty: "medium", topic: "Dynamic Programming", timeTaken: 45, source: "https://leetcode.com/problems/unique-paths-ii/" },
 
   // Hard (10)
-  { name: "Edit Distance", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 75, source: "https://leetcode.com/problems/edit-distance/" },
-  { name: "Regular Expression Matching", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 80, source: "https://leetcode.com/problems/regular-expression-matching/" },
-  { name: "Wildcard Matching", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 75, source: "https://leetcode.com/problems/wildcard-matching/" },
   { name: "Best Time to Buy and Sell Stock III", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 65, source: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/" },
   { name: "Best Time to Buy and Sell Stock IV", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 70, source: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/" },
   { name: "Maximum Profit in Job Scheduling", difficulty: "hard", topic: "Dynamic Programming", timeTaken: 75, source: "https://leetcode.com/problems/maximum-profit-in-job-scheduling/" },
@@ -297,8 +285,6 @@ export const problemList = [
   // Medium (10)
   { name: "Search a 2D Matrix", difficulty: "medium", topic: "Binary Search", timeTaken: 40, source: "https://leetcode.com/problems/search-a-2d-matrix/" },
   { name: "Find First and Last Position of Element in Sorted Array", difficulty: "medium", topic: "Binary Search", timeTaken: 45, source: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" },
-  { name: "Search in Rotated Sorted Array", difficulty: "medium", topic: "Binary Search", timeTaken: 45, source: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
-  { name: "Find Minimum in Rotated Sorted Array", difficulty: "medium", topic: "Binary Search", timeTaken: 40, source: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" },
   { name: "Capacity To Ship Packages Within D Days", difficulty: "medium", topic: "Binary Search", timeTaken: 50, source: "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" },
   { name: "Split Array Largest Sum", difficulty: "medium", topic: "Binary Search", timeTaken: 55, source: "https://leetcode.com/problems/split-array-largest-sum/" },
   { name: "Koko Eating Bananas", difficulty: "medium", topic: "Binary Search", timeTaken: 45, source: "https://leetcode.com/problems/koko-eating-bananas/" },
@@ -307,8 +293,6 @@ export const problemList = [
   { name: "Time Based Key-Value Store", difficulty: "medium", topic: "Binary Search", timeTaken: 45, source: "https://leetcode.com/problems/time-based-key-value-store/" },
 
   // Hard (4)
-  { name: "Median of Two Sorted Arrays", difficulty: "hard", topic: "Binary Search", timeTaken: 80, source: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
-  { name: "Minimum Window Substring", difficulty: "hard", topic: "Binary Search", timeTaken: 70, source: "https://leetcode.com/problems/minimum-window-substring/" },
   { name: "Find Minimum in Rotated Sorted Array II", difficulty: "hard", topic: "Binary Search", timeTaken: 50, source: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/" },
   { name: "Max Sum of Rectangle No Larger Than K", difficulty: "hard", topic: "Binary Search", timeTaken: 75, source: "https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/" },
 
@@ -336,7 +320,6 @@ export const problemList = [
 
   // ===== STACK (20 problems) =====
   // Easy (6)
-  { name: "Valid Parentheses", difficulty: "easy", topic: "Stack", timeTaken: 25, source: "https://leetcode.com/problems/valid-parentheses/" },
   { name: "Min Stack", difficulty: "easy", topic: "Stack", timeTaken: 30, source: "https://leetcode.com/problems/min-stack/" },
   { name: "Implement Queue using Stacks", difficulty: "easy", topic: "Stack", timeTaken: 30, source: "https://leetcode.com/problems/implement-queue-using-stacks/" },
   { name: "Next Greater Element I", difficulty: "easy", topic: "Stack", timeTaken: 35, source: "https://leetcode.com/problems/next-greater-element-i/" },
@@ -347,7 +330,6 @@ export const problemList = [
   { name: "Evaluate Reverse Polish Notation", difficulty: "medium", topic: "Stack", timeTaken: 40, source: "https://leetcode.com/problems/evaluate-reverse-polish-notation/" },
   { name: "Daily Temperatures", difficulty: "medium", topic: "Stack", timeTaken: 45, source: "https://leetcode.com/problems/daily-temperatures/" },
   { name: "Asteroid Collision", difficulty: "medium", topic: "Stack", timeTaken: 45, source: "https://leetcode.com/problems/asteroid-collision/" },
-  { name: "Decode String", difficulty: "medium", topic: "Stack", timeTaken: 45, source: "https://leetcode.com/problems/decode-string/" },
   { name: "Remove K Digits", difficulty: "medium", topic: "Stack", timeTaken: 50, source: "https://leetcode.com/problems/remove-k-digits/" },
   { name: "132 Pattern", difficulty: "medium", topic: "Stack", timeTaken: 50, source: "https://leetcode.com/problems/132-pattern/" },
   { name: "Next Greater Element II", difficulty: "medium", topic: "Stack", timeTaken: 45, source: "https://leetcode.com/problems/next-greater-element-ii/" },
@@ -356,29 +338,19 @@ export const problemList = [
   { name: "Basic Calculator", difficulty: "medium", topic: "Stack", timeTaken: 55, source: "https://leetcode.com/problems/basic-calculator/" },
 
   // Hard (4)
-  { name: "Largest Rectangle in Histogram", difficulty: "hard", topic: "Stack", timeTaken: 70, source: "https://leetcode.com/problems/largest-rectangle-in-histogram/" },
-  { name: "Maximal Rectangle", difficulty: "hard", topic: "Stack", timeTaken: 75, source: "https://leetcode.com/problems/maximal-rectangle/" },
   { name: "Basic Calculator III", difficulty: "hard", topic: "Stack", timeTaken: 80, source: "https://leetcode.com/problems/basic-calculator-iii/" },
   { name: "Longest Valid Parentheses", difficulty: "hard", topic: "Stack", timeTaken: 65, source: "https://leetcode.com/problems/longest-valid-parentheses/" },
 
   // ===== HASH TABLE (25 problems) =====
   // Easy (8)
-  { name: "Two Sum", difficulty: "easy", topic: "Hash Table", timeTaken: 25, source: "https://leetcode.com/problems/two-sum/" },
-  { name: "Contains Duplicate", difficulty: "easy", topic: "Hash Table", timeTaken: 20, source: "https://leetcode.com/problems/contains-duplicate/" },
-  { name: "Valid Anagram", difficulty: "easy", topic: "Hash Table", timeTaken: 20, source: "https://leetcode.com/problems/valid-anagram/" },
-  { name: "First Unique Character in a String", difficulty: "easy", topic: "Hash Table", timeTaken: 25, source: "https://leetcode.com/problems/first-unique-character-in-a-string/" },
   { name: "Intersection of Two Arrays", difficulty: "easy", topic: "Hash Table", timeTaken: 30, source: "https://leetcode.com/problems/intersection-of-two-arrays/" },
   { name: "Happy Number", difficulty: "easy", topic: "Hash Table", timeTaken: 30, source: "https://leetcode.com/problems/happy-number/" },
   { name: "Isomorphic Strings", difficulty: "easy", topic: "Hash Table", timeTaken: 30, source: "https://leetcode.com/problems/isomorphic-strings/" },
   { name: "Word Pattern", difficulty: "easy", topic: "Hash Table", timeTaken: 30, source: "https://leetcode.com/problems/word-pattern/" },
 
   // Medium (12)
-  { name: "Group Anagrams", difficulty: "medium", topic: "Hash Table", timeTaken: 50, source: "https://leetcode.com/problems/group-anagrams/" },
   { name: "Longest Consecutive Sequence", difficulty: "medium", topic: "Hash Table", timeTaken: 45, source: "https://leetcode.com/problems/longest-consecutive-sequence/" },
-  { name: "Subarray Sum Equals K", difficulty: "medium", topic: "Hash Table", timeTaken: 45, source: "https://leetcode.com/problems/subarray-sum-equals-k/" },
-  { name: "LRU Cache", difficulty: "medium", topic: "Hash Table", timeTaken: 50, source: "https://leetcode.com/problems/lru-cache/" },
   { name: "Insert Delete GetRandom O(1)", difficulty: "medium", topic: "Hash Table", timeTaken: 45, source: "https://leetcode.com/problems/insert-delete-getrandom-o1/" },
-  { name: "Top K Frequent Elements", difficulty: "medium", topic: "Hash Table", timeTaken: 45, source: "https://leetcode.com/problems/top-k-frequent-elements/" },
   { name: "Design Underground System", difficulty: "medium", topic: "Hash Table", timeTaken: 50, source: "https://leetcode.com/problems/design-underground-system/" },
   { name: "Find Duplicate File in System", difficulty: "medium", topic: "Hash Table", timeTaken: 45, source: "https://leetcode.com/problems/find-duplicate-file-in-system/" },
   { name: "Brick Wall", difficulty: "medium", topic: "Hash Table", timeTaken: 40, source: "https://leetcode.com/problems/brick-wall/" },
@@ -387,9 +359,6 @@ export const problemList = [
   { name: "Encode and Decode TinyURL", difficulty: "medium", topic: "Hash Table", timeTaken: 40, source: "https://leetcode.com/problems/encode-and-decode-tinyurl/" },
 
   // Hard (5)
-  { name: "LFU Cache", difficulty: "hard", topic: "Hash Table", timeTaken: 75, source: "https://leetcode.com/problems/lfu-cache/" },
-  { name: "All O`one Data Structure", difficulty: "hard", topic: "Hash Table", timeTaken: 70, source: "https://leetcode.com/problems/all-oone-data-structure/" },
-  { name: "First Missing Positive", difficulty: "hard", topic: "Hash Table", timeTaken: 65, source: "https://leetcode.com/problems/first-missing-positive/" },
   { name: "Sudoku Solver", difficulty: "hard", topic: "Hash Table", timeTaken: 80, source: "https://leetcode.com/problems/sudoku-solver/" },
   { name: "Word Squares", difficulty: "hard", topic: "Hash Table", timeTaken: 75, source: "https://leetcode.com/problems/word-squares/" },
 
@@ -401,48 +370,25 @@ export const problemList = [
   { name: "Lowest Common Ancestor of a Binary Search Tree", difficulty: "easy", topic: "Binary Search Tree", timeTaken: 30, source: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
 
   // Medium (4)
-  { name: "Validate Binary Search Tree", difficulty: "medium", topic: "Binary Search Tree", timeTaken: 45, source: "https://leetcode.com/problems/validate-binary-search-tree/" },
-  { name: "Convert Sorted Array to Binary Search Tree", difficulty: "medium", topic: "Binary Search Tree", timeTaken: 40, source: "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" },
   { name: "Binary Search Tree Iterator", difficulty: "medium", topic: "Binary Search Tree", timeTaken: 45, source: "https://leetcode.com/problems/binary-search-tree-iterator/" },
-  { name: "Kth Smallest Element in a BST", difficulty: "medium", topic: "Binary Search Tree", timeTaken: 40, source: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/" },
-
-  // Hard (2)
-  { name: "Serialize and Deserialize BST", difficulty: "hard", topic: "Binary Search Tree", timeTaken: 60, source: "https://leetcode.com/problems/serialize-and-deserialize-bst/" },
-  { name: "Recover Binary Search Tree", difficulty: "hard", topic: "Binary Search Tree", timeTaken: 65, source: "https://leetcode.com/problems/recover-binary-search-tree/" },
 
   // ===== RECURSION (10 problems) =====
   // Easy (4)
-  { name: "Reverse String", difficulty: "easy", topic: "Recursion", timeTaken: 20, source: "https://leetcode.com/problems/reverse-string/" },
   { name: "Swap Nodes in Pairs", difficulty: "easy", topic: "Recursion", timeTaken: 25, source: "https://leetcode.com/problems/swap-nodes-in-pairs/" },
-  { name: "Merge Two Sorted Lists", difficulty: "easy", topic: "Recursion", timeTaken: 30, source: "https://leetcode.com/problems/merge-two-sorted-lists/" },
-  { name: "Reverse Linked List", difficulty: "easy", topic: "Recursion", timeTaken: 25, source: "https://leetcode.com/problems/reverse-linked-list/" },
 
   // Medium (4)
   { name: "Permutations", difficulty: "medium", topic: "Recursion", timeTaken: 45, source: "https://leetcode.com/problems/permutations/" },
   { name: "Subsets", difficulty: "medium", topic: "Recursion", timeTaken: 40, source: "https://leetcode.com/problems/subsets/" },
-  { name: "Generate Parentheses", difficulty: "medium", topic: "Recursion", timeTaken: 50, source: "https://leetcode.com/problems/generate-parentheses/" },
   { name: "Combination Sum", difficulty: "medium", topic: "Recursion", timeTaken: 45, source: "https://leetcode.com/problems/combination-sum/" },
-
-  // Hard (2)
-  { name: "N-Queens", difficulty: "hard", topic: "Recursion", timeTaken: 80, source: "https://leetcode.com/problems/n-queens/" },
-  { name: "Sudoku Solver", difficulty: "hard", topic: "Recursion", timeTaken: 80, source: "https://leetcode.com/problems/sudoku-solver/" },
 
   // ===== MATRIX (10 problems) =====
   // Easy (4)
-  { name: "Reshape the Matrix", difficulty: "easy", topic: "Matrix", timeTaken: 30, source: "https://leetcode.com/problems/reshape-the-matrix/" },
   { name: "Toeplitz Matrix", difficulty: "easy", topic: "Matrix", timeTaken: 25, source: "https://leetcode.com/problems/toeplitz-matrix/" },
   { name: "Transpose Matrix", difficulty: "easy", topic: "Matrix", timeTaken: 25, source: "https://leetcode.com/problems/transpose-matrix/" },
   { name: "Matrix Diagonal Sum", difficulty: "easy", topic: "Matrix", timeTaken: 30, source: "https://leetcode.com/problems/matrix-diagonal-sum/" },
 
-  // Medium (4)
-  { name: "Set Matrix Zeroes", difficulty: "medium", topic: "Matrix", timeTaken: 40, source: "https://leetcode.com/problems/set-matrix-zeroes/" },
-  { name: "Spiral Matrix", difficulty: "medium", topic: "Matrix", timeTaken: 45, source: "https://leetcode.com/problems/spiral-matrix/" },
-  { name: "Rotate Image", difficulty: "medium", topic: "Matrix", timeTaken: 40, source: "https://leetcode.com/problems/rotate-image/" },
-  { name: "Word Search", difficulty: "medium", topic: "Matrix", timeTaken: 50, source: "https://leetcode.com/problems/word-search/" },
-
   // Hard (2)
   { name: "Game of Life", difficulty: "hard", topic: "Matrix", timeTaken: 55, source: "https://leetcode.com/problems/game-of-life/" },
-  { name: "Sudoku Solver", difficulty: "hard", topic: "Matrix", timeTaken: 80, source: "https://leetcode.com/problems/sudoku-solver/" },
 
   // ===== QUEUE (8 problems) =====
   // Easy (3)
@@ -452,11 +398,9 @@ export const problemList = [
 
   // Medium (3)
   { name: "Open the Lock", difficulty: "medium", topic: "Queue", timeTaken: 45, source: "https://leetcode.com/problems/open-the-lock/" },
-  { name: "Perfect Squares", difficulty: "medium", topic: "Queue", timeTaken: 45, source: "https://leetcode.com/problems/perfect-squares/" },
   { name: "Design Circular Queue", difficulty: "medium", topic: "Queue", timeTaken: 40, source: "https://leetcode.com/problems/design-circular-queue/" },
 
   // Hard (2)
-  { name: "Sliding Window Maximum", difficulty: "hard", topic: "Queue", timeTaken: 65, source: "https://leetcode.com/problems/sliding-window-maximum/" },
   { name: "First Unique Number", difficulty: "hard", topic: "Queue", timeTaken: 55, source: "https://leetcode.com/problems/first-unique-number/" },
 
   // ===== MATH (10 problems) =====
@@ -464,22 +408,18 @@ export const problemList = [
   { name: "Fizz Buzz", difficulty: "easy", topic: "Math", timeTaken: 20, source: "https://leetcode.com/problems/fizz-buzz/" },
   { name: "Count Primes", difficulty: "easy", topic: "Math", timeTaken: 30, source: "https://leetcode.com/problems/count-primes/" },
   { name: "Power of Three", difficulty: "easy", topic: "Math", timeTaken: 25, source: "https://leetcode.com/problems/power-of-three/" },
-  { name: "Roman to Integer", difficulty: "easy", topic: "Math", timeTaken: 30, source: "https://leetcode.com/problems/roman-to-integer/" },
 
   // Medium (4)
-  { name: "Happy Number", difficulty: "medium", topic: "Math", timeTaken: 35, source: "https://leetcode.com/problems/happy-number/" },
   { name: "Factorial Trailing Zeroes", difficulty: "medium", topic: "Math", timeTaken: 30, source: "https://leetcode.com/problems/factorial-trailing-zeroes/" },
   { name: "Excel Sheet Column Number", difficulty: "medium", topic: "Math", timeTaken: 25, source: "https://leetcode.com/problems/excel-sheet-column-number/" },
   { name: "Pow(x, n)", difficulty: "medium", topic: "Math", timeTaken: 40, source: "https://leetcode.com/problems/powx-n/" },
 
   // Hard (2)
   { name: "Max Points on a Line", difficulty: "hard", topic: "Math", timeTaken: 65, source: "https://leetcode.com/problems/max-points-on-a-line/" },
-  { name: "Basic Calculator", difficulty: "hard", topic: "Math", timeTaken: 70, source: "https://leetcode.com/problems/basic-calculator/" },
 
   // ===== TRIE (8 problems) =====
   // Easy (2)
   { name: "Implement Trie (Prefix Tree)", difficulty: "easy", topic: "Trie", timeTaken: 35, source: "https://leetcode.com/problems/implement-trie-prefix-tree/" },
-  { name: "Longest Common Prefix", difficulty: "easy", topic: "Trie", timeTaken: 30, source: "https://leetcode.com/problems/longest-common-prefix/" },
 
   // Medium (4)
   { name: "Add and Search Word", difficulty: "medium", topic: "Trie", timeTaken: 45, source: "https://leetcode.com/problems/add-and-search-word-data-structure-design/" },
@@ -494,19 +434,41 @@ export const problemList = [
   // ===== BINARY (8 problems) =====
   // Easy (3)
   { name: "Number of 1 Bits", difficulty: "easy", topic: "Binary", timeTaken: 25, source: "https://leetcode.com/problems/number-of-1-bits/" },
-  { name: "Counting Bits", difficulty: "easy", topic: "Binary", timeTaken: 35, source: "https://leetcode.com/problems/counting-bits/" },
   { name: "Reverse Bits", difficulty: "easy", topic: "Binary", timeTaken: 30, source: "https://leetcode.com/problems/reverse-bits/" },
 
   // Medium (3)
   { name: "Sum of Two Integers", difficulty: "medium", topic: "Binary", timeTaken: 40, source: "https://leetcode.com/problems/sum-of-two-integers/" },
-  { name: "Missing Number", difficulty: "medium", topic: "Binary", timeTaken: 35, source: "https://leetcode.com/problems/missing-number/" },
-  { name: "Single Number", difficulty: "medium", topic: "Binary", timeTaken: 30, source: "https://leetcode.com/problems/single-number/" },
 
   // Hard (2)
   { name: "Divide Two Integers", difficulty: "hard", topic: "Binary", timeTaken: 55, source: "https://leetcode.com/problems/divide-two-integers/" },
   { name: "Maximum Product of Word Lengths", difficulty: "hard", topic: "Binary", timeTaken: 60, source: "https://leetcode.com/problems/maximum-product-of-word-lengths/" }
 ];
 
+const getProblemList = () => {
+    try {
+        const stored = localStorage.getItem('problemList');
+        if (stored === null) {
+            // Initialize with default problems
+            const initializedList = initProblemList.map(problem => ({
+                ...problem,
+                isCompleted: problem.isCompleted || false // Ensure isCompleted property exists
+            }));
+            localStorage.setItem('problemList', JSON.stringify(initializedList));
+            return initializedList;
+        }
+        return JSON.parse(stored); // Convert string back to array
+    } catch (error) {
+        console.error('Error loading problem list:', error);
+        // Fallback to initial list
+        return initProblemList.map(problem => ({
+            ...problem,
+            isCompleted: problem.isCompleted || false
+        }));
+    }
+}
+
+export const problemList = getProblemList();
+console.log(problemList)
 
 const topicPriority = new Map();
 topics.forEach(topic => topicPriority.set(topic.name, topic.priority));
@@ -527,87 +489,100 @@ problemList.forEach(problem => {
 });
 
 export const generateProblemChosenList = (weekCount, hoursPerWeek, difficultiesChosen, topicsChosen) => {
-    const totalTime = weekCount * hoursPerWeek * 60;
+const totalTime = weekCount * hoursPerWeek * 60;
+
+// Calculate time budget for each difficulty based on priority weights
+const totalPriority = difficultiesChosen.reduce((sum, diff) => sum + diff.priority, 0);
+const timeBudget = {};
+
+difficultiesChosen.forEach(diff => {
+    timeBudget[diff.level] = totalTime * (diff.priority / totalPriority);
+});
+
+const resultingList = [];
+
+// Process each difficulty separately
+difficultiesChosen.forEach(diff => {
+    const level = diff.level;
+    const budget = timeBudget[level];
     
-    // Calculate time budget for each difficulty based on priority weights
-    const totalPriority = difficultiesChosen.reduce((sum, diff) => sum + diff.priority, 0);
-    const timeBudget = {};
+    // Filter problems for this difficulty and chosen topics
+    const difficultyProblems = problemList.filter(problem => 
+        problem.difficulty === level && 
+        topicsChosen.some(t => t.name === problem.topic)
+    );
     
-    difficultiesChosen.forEach(diff => {
-        timeBudget[diff.level] = totalTime * (diff.priority / totalPriority);
-    });
+    // Sort by weight (highest first)
+    difficultyProblems.sort((a, b) => b.weight - a.weight);
     
-    const resultingList = [];
+    let accumulatedTime = 0;
     
-    // Process each difficulty separately
-    difficultiesChosen.forEach(diff => {
-        const level = diff.level;
-        const budget = timeBudget[level];
-        
-        // Filter problems for this difficulty and chosen topics
-        const difficultyProblems = problemList.filter(problem => 
-            problem.difficulty === level && 
-            topicsChosen.some(t => t.name === problem.topic)
-        );
-        
-        // Sort by weight (highest first)
-        difficultyProblems.sort((a, b) => b.weight - a.weight);
-        
-        let accumulatedTime = 0;
-        
-        // Select problems until budget is filled
-        for (const problem of difficultyProblems) {
-            if (accumulatedTime + problem.timeTaken <= budget) {
-                resultingList.push(problem);
-                accumulatedTime += problem.timeTaken;
-            } else {
-                break;
-            }
+    // Select problems until budget is filled
+    for (const problem of difficultyProblems) {
+        if (accumulatedTime + problem.timeTaken <= budget) {
+            resultingList.push(problem);
+            accumulatedTime += problem.timeTaken;
+        } else {
+            break;
         }
-    });
-    
-    return resultingList;
+    }
+});
+
+return resultingList;
 };
 
 export const generateWeeklyProblemSets = (problemChosenList, weekCount, hoursPerWeek) => {
-    const weeklyMinutes = hoursPerWeek * 60;
-    const weeklyProblemSets = [];
+if (weekCount * hoursPerWeek === 0) return [];
+
+const weeklyMinutes = hoursPerWeek * 60;
+const weeklyProblemSets = [];
+
+// Sort problems: first by difficulty (easy -> medium -> hard), then by weight (highest first)
+const sortedProblems = [...problemChosenList].sort((a, b) => {
+    // Primary: Difficulty order (easy first, then medium, then hard)
+    const difficultyOrder = { easy: 0, medium: 1, hard: 2 };
+    const difficultyDiff = difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
     
-    // Sort problems: first by difficulty (easy -> medium -> hard), then by weight (highest first)
-    const sortedProblems = [...problemChosenList].sort((a, b) => {
-        // Primary: Difficulty order (easy first, then medium, then hard)
-        const difficultyOrder = { easy: 0, medium: 1, hard: 2 };
-        const difficultyDiff = difficultyOrder[a.difficulty] - difficultyOrder[b.difficulty];
-        
-        if (difficultyDiff !== 0) return difficultyDiff;
-        
-        // Secondary: Weight (highest first within same difficulty)
-        return b.weight - a.weight;
-    });
+    if (difficultyDiff !== 0) return difficultyDiff;
     
-    // Initialize empty arrays for each week
-    for (let i = 0; i < weekCount; i++) {
-        weeklyProblemSets.push([]);
+    // Secondary: Weight (highest first within same difficulty)
+    return b.weight - a.weight;
+});
+
+// Initialize empty arrays for each week
+for (let i = 0; i < weekCount; i++) {
+    weeklyProblemSets.push([]);
+}
+
+// Distribute ALL problems across weeks
+let currentWeek = 0;
+let weekTimeUsed = 0;
+
+for (const problem of sortedProblems) {
+    // If current week is full, move to next week
+    if (weekTimeUsed + problem.timeTaken > weeklyMinutes && currentWeek < weekCount - 1) {
+        currentWeek++;
+        weekTimeUsed = 0;
     }
     
-    // Distribute ALL problems across weeks
-    let currentWeek = 0;
-    let weekTimeUsed = 0;
-    
-    for (const problem of sortedProblems) {
-        // If current week is full, move to next week
-        if (weekTimeUsed + problem.timeTaken > weeklyMinutes && currentWeek < weekCount - 1) {
-            currentWeek++;
-            weekTimeUsed = 0;
-        }
-        
-        // Add problem to current week
-        weeklyProblemSets[currentWeek].push(problem);
-        weekTimeUsed += problem.timeTaken;
-    }
-    
-    return weeklyProblemSets;
+    // Add problem to current week
+    weeklyProblemSets[currentWeek].push(problem);
+    weekTimeUsed += problem.timeTaken;
+}
+
+return weeklyProblemSets;
 };
 
 export const getLabelColorFromDifficulty = new Map();
 difficulties.forEach(difficulty => getLabelColorFromDifficulty.set(difficulty.level, difficulty.labelColor));
+
+export const getProblemCompletedCount = (problemList) => {
+let problemCompletedCount = 0;
+
+for (const problem of problemList) {
+    if (problem.isCompleted) problemCompletedCount++;
+    
+}                              
+
+return problemCompletedCount;
+}

@@ -1,14 +1,44 @@
 import styles from './ProblemSet.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import QuestionSummary from './QuestionSummary/QuestionSummary'
-import { generateProblemChosenList, generateWeeklyProblemSets } from './../../../constants/problemSet';
+import { generateProblemChosenList, generateWeeklyProblemSets, problemList } from './../../../constants/problemSet';
 import WeeklyProblemSet from './WeeklyProblemSet/WeeklyProblemSet';
 
 const ProblemSet = ({ weekCount, hoursPerWeek, difficultiesChosen, topicsChosen }) => {
 
-    const problemChosenList = generateProblemChosenList(weekCount, hoursPerWeek, difficultiesChosen, topicsChosen);
+    const [problemChosenList, setProblemChosenList] = useState(() => {
+        return generateProblemChosenList(weekCount, hoursPerWeek, difficultiesChosen, topicsChosen)
+    });
+
     const problemCount = problemChosenList.length;
-    const weeklyProblemSet = generateWeeklyProblemSets(problemChosenList, weekCount, hoursPerWeek, difficultiesChosen);
+
+    useEffect(() => {
+        const newProblemChosenList = generateProblemChosenList(
+            weekCount, 
+            hoursPerWeek, 
+            difficultiesChosen, 
+            topicsChosen
+        );
+        setProblemChosenList(newProblemChosenList);
+    }, [weekCount, hoursPerWeek, difficultiesChosen, topicsChosen]);
+    
+    const handleProblemCompletion = (problem, newIsCompleted) => {    
+        const problemInList = problemList.find(p => p.name === problem.name);
+        if (problemInList) {
+            problemInList.isCompleted = newIsCompleted;
+        }
+        
+        // Update problemChosenList with new object (independent)
+        setProblemChosenList(prevList => 
+            prevList.map(p => 
+                p.name === problem.name 
+                    ? { ...p, isCompleted: newIsCompleted } // New object
+                    : p
+            )
+        );
+        localStorage.setItem('problemList', JSON.stringify(problemList));
+    }
+                              
 
     return (
         <>
@@ -33,7 +63,11 @@ const ProblemSet = ({ weekCount, hoursPerWeek, difficultiesChosen, topicsChosen 
                 >   
                 </QuestionSummary>
                 <WeeklyProblemSet
-                    weeklyProblemSet = {weeklyProblemSet}
+                    problemChosenList = {problemChosenList}
+                    onProblemCompletion = {handleProblemCompletion}
+                    weekCount = {weekCount}
+                    hoursPerWeek = {hoursPerWeek}
+                    difficultiesChosen= {difficultiesChosen}
                 >
                 </WeeklyProblemSet>
             </main>

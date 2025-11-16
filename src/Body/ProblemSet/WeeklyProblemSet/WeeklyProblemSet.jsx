@@ -1,29 +1,29 @@
 import styles from './WeeklyProblemSet.module.css'
 import { useState } from 'react'
-import { getLabelColorFromDifficulty } from '../../../../constants/problemSet'
+import { getLabelColorFromDifficulty, getProblemCompletedCount } from '../../../../constants/problemSet'
 import TopicTag from '../TopicTag/TopicTag'
+import { generateWeeklyProblemSets } from '../../../../constants/problemSet'
+import ProgressBar from '../ProgressBar/ProgressBar'
 
+const ProblemCard = ({ problem, problemIndex, completed, onProblemCompletion }) => {
 
-const ProblemCard = ({ problem, problemIndex, completed }) => {
-    const [isCompleted, setIsCompleted] = useState(completed);
-
-    const onCompletionClicked = () => {
-        const newIsCompleted = !isCompleted;
-        setIsCompleted(newIsCompleted);
+    const handleCompletionClicked = () => {
+        const newIsCompleted = !completed;
+        onProblemCompletion && onProblemCompletion(problem, newIsCompleted);   
     }
 
     const ProblemDifficultyStyles = {
         color: getLabelColorFromDifficulty.get(problem.difficulty),
     }
 
-    const TopicTagStyles = {
+    const TopicTagStyles = { 
         margin: '0 0 0 1rem',
     }
 
     return (
         <>
             <div
-                className = {`${styles['problem-card-container']} ${isCompleted && styles['problem-card-container-completed']}`}
+                className = {`${styles['problem-card-container']} ${completed && styles['problem-card-container-completed']}`}
             >
                 <span
                     className = {`${styles['problem-card-index']}`}
@@ -62,8 +62,8 @@ const ProblemCard = ({ problem, problemIndex, completed }) => {
                     </div>
                 </div>
                 <div
-                    className = {`${styles['completion-button']} ${isCompleted && styles['completion-button-completed']}`}
-                    onClick = {onCompletionClicked}
+                    className = {`${styles['completion-button']} ${completed && styles['completion-button-completed']}`}
+                    onClick = {handleCompletionClicked}
                 >
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" 
@@ -84,13 +84,18 @@ const ProblemCard = ({ problem, problemIndex, completed }) => {
     )
 }
  
-const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
+const WeekProblemList = ({ weeklyProblems, weekIndex, onProblemCompletion }) => {
     const [isExpanding, setIsExpanding] = useState(false);
 
     const onChangeExpandingState = () => {
         const newIsExpanding = !isExpanding;
         setIsExpanding(newIsExpanding);
     }
+
+    const problemCount = weeklyProblems.length;
+    const problemCompletedCount = getProblemCompletedCount(weeklyProblems);
+
+    const isWeekCompleted = problemCount === problemCompletedCount;
 
     return (
         <div
@@ -104,14 +109,32 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
                     className = {`${styles['week-button-children']}`}
                 >
                     <h2
-                    className = {`${styles['week-number-header']}`}
+                        className = {`${styles['week-number-header']}`}
                     >
                         Week {weekIndex}
                     </h2>
+                    {isWeekCompleted && 
+                    <div
+                        className = {`${styles['week-completed-tag']}`}
+                    >
+                        COMPLETED
+                    </div>
+                    }
                 </div>
                 <div
                     className = {`${styles['week-button-children']}`}
                 >
+                    <div
+                        className = {`${styles['week-problem-count']} ${isWeekCompleted && styles['week-problem-count-completed']}`}
+                    >
+                        {problemCompletedCount} / {problemCount}
+                    </div>
+                    <ProgressBar
+                        className = {`${styles['week-progress-bar']}`}
+                        currentValue = {problemCompletedCount}
+                        maxValue = {problemCount}
+                    >
+                    </ProgressBar>
                     <svg 
                         xmlns="http://www.w3.org/2000/svg" 
                         fill="none" 
@@ -144,6 +167,7 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
                         problem = {problem}
                         problemIndex = {problemIndex + 1}
                         completed = {problem.isCompleted}
+                        onProblemCompletion = {onProblemCompletion}
                     >
                     </ProblemCard>
                 )
@@ -152,7 +176,10 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
     )
 }
 
-const WeeklyProblemSet = ({ weeklyProblemSet }) => {
+const WeeklyProblemSet = ({ problemChosenList, onProblemCompletion, weekCount, hoursPerWeek, difficultiesChosen }) => {
+
+    const weeklyProblemSet = generateWeeklyProblemSets(problemChosenList, weekCount, hoursPerWeek, difficultiesChosen);
+
     return (
         <div
             className = {`${styles.container}`}
@@ -162,6 +189,7 @@ const WeeklyProblemSet = ({ weeklyProblemSet }) => {
                     key = {weekIndex + 1}
                     weeklyProblems = {weeklyProblems}
                     weekIndex = {weekIndex + 1}
+                    onProblemCompletion = {onProblemCompletion}
                 >
                 </WeekProblemList>
             })}

@@ -1,5 +1,7 @@
 import styles from './QuestionSummary.module.css'
 import TopicTag from '../TopicTag/TopicTag'
+import { getProblemCompletedCount } from '../../../../constants/problemSet';
+import ProgressBar from '../ProgressBar/ProgressBar'
 
 const QuestionSummary = ({ totalTime, problemChosenList, topicsChosen, difficultiesChosen }) => {
     const problemInTopicCount = new Map();
@@ -15,6 +17,7 @@ const QuestionSummary = ({ totalTime, problemChosenList, topicsChosen, difficult
         problemInTopicCount.set(problem.topic, problemInTopicCount.get(problem.topic) + 1);
         problemInDifficultyCount.set(problem.difficulty, problemInDifficultyCount.get(problem.difficulty) + 1);
     })
+
 
     return (
         <>
@@ -119,7 +122,16 @@ const QuestionSummary = ({ totalTime, problemChosenList, topicsChosen, difficult
                 <div
                     className = {`${styles['completion-tracker-container']}`}
                 >
-                    
+                    <h3
+                        className = {`${styles['completion-count']}`}
+                    >
+                        COMPLETED {getProblemCompletedCount(problemChosenList)} / {problemChosenList.length}
+                    </h3>
+                    <ProgressBar
+                        currentValue = {getProblemCompletedCount(problemChosenList)}
+                        maxValue = {problemChosenList.length}
+                    >
+                    </ProgressBar>
                 </div>
             </div>
         </>
