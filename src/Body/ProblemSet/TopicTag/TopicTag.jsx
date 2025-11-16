@@ -7,7 +7,7 @@ const TopicTag = ({ topicName, count, style }) => {
                 className = {`${styles['topic-tag']}`}
                 style = {style}
             >
-                {topicName}{count && `: ${count}`}
+                {topicName}{count !== undefined && `: ${count}`}
             </span>
         </>
     )

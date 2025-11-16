@@ -58,9 +58,6 @@ const SliderInput = ({ minValue, maxValue, value, setValue, fillColor = 'rgb(79,
 
 
 const SchedulePreference = ({ weekCount, setWeekCount, hoursPerWeek, setHoursPerWeek }) => {
-    const handleInputChange = (newValue, setValue) => {
-        setValue(newValue);
-    }
     return (
         <div className = {`${styles['preference-container']}`}> 
             <legend className = {`${styles['preference-header']}`}>Schedule</legend>
@@ -71,7 +68,6 @@ const SchedulePreference = ({ weekCount, setWeekCount, hoursPerWeek, setHoursPer
                     maxValue = {26}
                     value = {weekCount}
                     setValue = {setWeekCount}
-                    onChange = {(newValue) => handleInputChange(newValue, setWeekCount)}
                 ></SliderInput>
                 <label className = {`${styles['schedule-label']}`}>{hoursPerWeek} hours per week</label>
                 <SliderInput
@@ -79,7 +75,6 @@ const SchedulePreference = ({ weekCount, setWeekCount, hoursPerWeek, setHoursPer
                     maxValue = {40}
                     value = {hoursPerWeek}
                     setValue = {setHoursPerWeek}
-                    onChange = {(newValue) => handleInputChange(newValue, setHoursPerWeek)}
                 ></SliderInput>
             </div>
         </div>

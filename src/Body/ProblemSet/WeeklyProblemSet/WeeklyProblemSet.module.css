@@ -78,6 +78,10 @@
     font-weight: 500;
 }
 
+.problem-card-container-completed {
+    background-color: rgb(236, 253, 245);
+}
+
 .problem-card-index {
     width: 2rem;
     font-size: 1.25rem;
@@ -132,4 +136,29 @@
     font-weight: 500;
     line-height: .875rem;
     color: rgb(75 85 99);
+}
+
+.completion-button {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 2rem;
+    height: 2rem;
+    color: rgb(209 213 219);
+    stroke: currentColor;
+    cursor: pointer;
+}
+
+.completion-button:hover {
+    color: rgb(156 163 175);
+}
+
+.completion-button-completed {
+    color: rgb(16 185 129);
+}
+
+.completion-button-completed:hover {
+    color: rgb(5 150 105);
 }

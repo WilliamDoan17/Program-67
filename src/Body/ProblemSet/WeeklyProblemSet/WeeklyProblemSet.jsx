@@ -4,7 +4,14 @@ import { getLabelColorFromDifficulty } from '../../../../constants/problemSet'
 import TopicTag from '../TopicTag/TopicTag'
 
 
-const ProblemCard = ({ problem, problemIndex }) => {
+const ProblemCard = ({ problem, problemIndex, completed }) => {
+    const [isCompleted, setIsCompleted] = useState(completed);
+
+    const onCompletionClicked = () => {
+        const newIsCompleted = !isCompleted;
+        setIsCompleted(newIsCompleted);
+    }
+
     const ProblemDifficultyStyles = {
         color: getLabelColorFromDifficulty.get(problem.difficulty),
     }
@@ -16,7 +23,7 @@ const ProblemCard = ({ problem, problemIndex }) => {
     return (
         <>
             <div
-                className = {`${styles['problem-card-container']}`}
+                className = {`${styles['problem-card-container']} ${isCompleted && styles['problem-card-container-completed']}`}
             >
                 <span
                     className = {`${styles['problem-card-index']}`}
@@ -53,6 +60,24 @@ const ProblemCard = ({ problem, problemIndex }) => {
                         >
                         </TopicTag>
                     </div>
+                </div>
+                <div
+                    className = {`${styles['completion-button']} ${isCompleted && styles['completion-button-completed']}`}
+                    onClick = {onCompletionClicked}
+                >
+                    <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" viewBox="0 0 24 24" 
+                        aria-hidden="true" 
+                    >
+                        <path 
+                            strokeLcap="round" 
+                            strokeLinejoin="round" 
+                            strokeWidth="2" 
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        >
+                        </path>
+                    </svg>
                 </div>
             </div>
         </>
@@ -93,20 +118,20 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
                         viewBox="0 0 24 24" 
                         stroke= 'grey'
                         aria-hidden="true" 
-                        class = {`${styles['expand-button']}`}
+                        className = {`${styles['expand-button']}`}
                     >
                         {isExpanding ? 
                             <path 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                stroke-width="2"
+                                strokeLinecap="round" 
+                                strokelinejoin="round" 
+                                strokeWidth="2"
                                 d="M5 15l7-7 7 7"
                             >
                             </path> : 
                             <path 
-                                stroke-linecap="round" 
-                                stroke-linejoin="round" 
-                                stroke-width="2" d="M19 9l-7 7-7-7"
+                                strokeLinecap="round" 
+                                strokeLinejoin="round" 
+                                strokeWidth="2" d="M19 9l-7 7-7-7"
                             >
                             </path>
                         }
@@ -118,6 +143,7 @@ const WeekProblemList = ({ weeklyProblems, weekIndex }) => {
                     <ProblemCard
                         problem = {problem}
                         problemIndex = {problemIndex + 1}
+                        completed = {problem.isCompleted}
                     >
                     </ProblemCard>
                 )
