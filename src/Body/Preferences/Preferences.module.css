@@ -1,8 +1,7 @@
 .block-container {
     display: block;
     height: 100%;
-    border-right: 1px solid rgb(229, 231, 235);
-    border-bottom: 1px solid rgb(229, 231, 235);
+    border-right: 1px solid rgb(209 213 219);
 }
 
 .container {
@@ -21,7 +20,7 @@
     align-items: flex-start;
     justify-content: space-between;
     box-sizing: border-box;
-    border-bottom: 1px solid rgb(229, 231, 235);
+    border-bottom: 1px solid rgb(209 213 219);
     padding: 1rem 2rem;
 }
 

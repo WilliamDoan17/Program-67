@@ -1,0 +1,45 @@
+.container {
+    padding: 9rem 2rem;
+}
+
+.footer-header {
+    margin: 0;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    color: rgb(17 24 39);
+}
+
+.footer-para {
+    margin: .75rem 0 0 0;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: rgb(107 114 128);
+}
+
+.contact {
+    margin: 2.25rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    flex: 0;
+    align-items: center;    
+}
+
+.mail-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(156 163 175);
+}
+
+.mail-address {
+    margin: 0 0 0 .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: rgb(99 102 241);
+}
+
+.mail-address:hover {
+    color: rgb(99 102 241);
+    text-decoration: underline;
+}
